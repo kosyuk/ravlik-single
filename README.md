@@ -15,3 +15,9 @@ As a result: 4 colonies, each has own algorithm
 - RavlikWithMemory: Uses random with first attempt, save experience, then when same circumstances use experience, then random
 - RavlikShareWithKids: Share experience with Kids, they will know more.
 
+All colonies have 1000000 ravliks at start, and during 100 turns try to survive.
+
+How to run: 
+```go run . ```
+
+Results [here](https://github.com/kosyuk/ravlik-single/blob/master/output.txt)
