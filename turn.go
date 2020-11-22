@@ -4,7 +4,7 @@ import "fmt"
 
 // Initial Ravlik Count
 const (
-	RAVLIKCOUNT = 10000000
+	RAVLIKCOUNT = 1000000
 )
 
 var area Area
@@ -13,7 +13,7 @@ var colonyList []Colony
 // var ravliks []Ravlik
 
 func init() {
-	colonyList = append(colonyList, &RandomRavlikColony, &RandomRavlikColony2)
+	colonyList = append(colonyList, &RandomRavlikColony, &RandomRavlikColony2, &RavlikWithMemoryColony, &RavlikShareWithKidsColony)
 	area.status = SUNNY
 	for i := range colonyList {
 		colonyList[i].Init(RAVLIKCOUNT)

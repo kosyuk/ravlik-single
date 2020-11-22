@@ -13,14 +13,9 @@ func main() {
 
 	for i := 0; i < 100; i++ {
 		ColoniesTurn()
-		// RavlikListTurn()
 		AreaTurn()
 		AreaAffect()
-		// CleanDeadRavlik()
 		DisplayStatistics()
 	}
-	// fmt.Println(AreaOptions)
-	// fmt.Println(RavlikOptions)
-	// fmt.Println(DeathChance)
 	fmt.Println("Ravlik Ended")
 }

@@ -6,7 +6,7 @@ type RandomRavlik struct {
 
 var RandomRavlikColony = AbstractColony{
 	name: "RandomRavlik#1",
-	createRavlik: func() Ravlik {
+	createRavlik: func(parent *Ravlik) Ravlik {
 		return &RandomRavlik{NEW}
 	},
 }

@@ -4,7 +4,7 @@ type AbstractColony struct {
 	ravlikList   []Ravlik
 	count        int
 	name         string
-	createRavlik func() Ravlik
+	createRavlik func(parent *Ravlik) Ravlik
 }
 
 func (colony *AbstractColony) GetName() string {
@@ -13,7 +13,7 @@ func (colony *AbstractColony) GetName() string {
 
 func (colony *AbstractColony) Init(count int) {
 	for i := 0; i < count; i++ {
-		colony.ravlikList = append(colony.ravlikList, colony.createRavlik())
+		colony.ravlikList = append(colony.ravlikList, colony.createRavlik(nil))
 	}
 }
 
@@ -28,7 +28,7 @@ func (colony *AbstractColony) Turn() {
 		if colony.ravlikList[i].GetStatus() == PARENTING {
 			count := GetRavlikParentingChildsCount()
 			for j := 0; j < count; j++ {
-				newRavlikList = append(newRavlikList, colony.createRavlik())
+				newRavlikList = append(newRavlikList, colony.createRavlik(&colony.ravlikList[i]))
 			}
 		}
 	}
