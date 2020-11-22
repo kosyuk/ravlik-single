@@ -24,6 +24,18 @@ func GetRavlikParentingChildsCount() int {
 	return 0
 }
 
+func GetRavlikRandomStatus(currentStatus RavlikStatus) RavlikStatus {
+	rand100 := rand.Intn(100)
+	sum := 0
+	for i := 0; i < len(RavlikOptions[currentStatus]); i++ {
+		sum += RavlikOptions[currentStatus][i]
+		if sum >= rand100 {
+			return RavlikStatus(i)
+		}
+	}
+	return currentStatus
+}
+
 func isRavlikAffectedByArea(areaStatus AreaStatus, ravlikStatus RavlikStatus) bool {
 	rand100 := rand.Intn(100)
 	return rand100 <= DeathChance[areaStatus][ravlikStatus]
