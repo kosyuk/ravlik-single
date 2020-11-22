@@ -4,7 +4,7 @@ import (
 	"math/rand"
 )
 
-func areaNextStatus(currentStatus AreaStatus) AreaStatus {
+func AreaNextStatus(currentStatus AreaStatus) AreaStatus {
 	rand100 := rand.Intn(100)
 	sum := 0
 	for i := 0; i < len(AreaOptions[currentStatus]); i++ {

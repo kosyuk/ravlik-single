@@ -34,23 +34,23 @@ func (d AreaStatus) String() string {
 	return [...]string{"SUNNY", "CLOUDY", "STORMY"}[d]
 }
 
-type Ravlic interface {
-	nextStatus()
+type Ravlik interface {
+	NextStatus()
+	GetStatus() RavlikStatus
+	SetStatus(RavlikStatus)
 }
 
 type Colony interface {
 	Init(int)
 	Turn()
+	AreaAffect(AreaStatus)
+	GetName() string
+	GetStats() map[RavlikStatus]int
+	GetCount() int
 }
 
 // Area Structure
 type Area struct {
 	turn   int
 	status AreaStatus
-}
-
-// Ravlik Structure
-type Ravlik struct {
-	id     int64
-	status RavlikStatus
 }

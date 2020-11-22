@@ -1,9 +1,6 @@
 package main
 
-import (
-	"fmt"
-	"math/rand"
-)
+import "fmt"
 
 // Initial Ravlik Count
 const (
@@ -31,65 +28,26 @@ func ColoniesTurn() {
 
 // AreaTurn provides trn for area
 func AreaTurn() {
-	area.status = areaNextStatus(area.status)
+	area.status = AreaNextStatus(area.status)
+	area.turn++
 }
 
-func ravlikNextRandomStatus(currentStatus RavlikStatus) RavlikStatus {
-	rand100 := rand.Intn(100)
-	sum := 0
-	for i := 0; i < len(RavlikOptions[currentStatus]); i++ {
-		sum += RavlikOptions[currentStatus][i]
-		if sum >= rand100 {
-			return RavlikStatus(i)
-		}
+func AreaAffect() {
+	for i := range colonyList {
+		colonyList[i].AreaAffect(area.status)
 	}
-	return currentStatus
-}
-
-func getRavlikParentingChildsCount() int {
-	rand100 := rand.Intn(100)
-	sum := 0
-	for i := 0; i < len(ParentingChance); i++ {
-		sum += ParentingChance[i]
-		if sum >= rand100 {
-			return i
-		}
-	}
-	return 0
-}
-
-func ravlikParenting() {
-	c := getRavlikParentingChildsCount()
-	for i := 0; i < c; i++ {
-		ravlik := Ravlik{int64(i), NEW}
-		ravliks = append(ravliks, ravlik)
-	}
-}
-
-// RavlikTurn change status of ravlik
-func RavlikTurn(r *Ravlik) {
-	r.status = ravlikNextRandomStatus(r.status)
-}
-
-// RavlikListTurn provides turn for ravlik lis
-func RavlikListTurn() {
-	for i := 0; i < len(ravliks); i++ {
-		RavlikTurn(&ravliks[i])
-	}
-}
-
-// CleanDeadRavlik cleans ravlik list from dead ravliks
-func CleanDeadRavlik() {
-
 }
 
 // DisplayStatistics displays count of ravliks by status
 func DisplayStatistics() {
-	fmt.Println("Statistyc of ravliks: ", len(ravliks))
-	var statusMap [RAVLIKSTATUSCOUNT]int
-	for i := 0; i < len(ravliks); i++ {
-		statusMap[ravliks[i].status]++
+	fmt.Printf("%d.Stats:(%s)\n", area.turn, area.status.String())
+	for i := range colonyList {
+		fmt.Printf("%s(%d)\n", colonyList[i].GetName(), colonyList[i].GetCount())
+		stats := colonyList[i].GetStats()
+		for j := range stats {
+			fmt.Printf("%s:%d  ", RavlikStatus(j).String(), stats[j])
+		}
+		fmt.Println()
 	}
-
-	fmt.Println(statusMap)
+	fmt.Println()
 }

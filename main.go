@@ -12,9 +12,11 @@ func main() {
 	fmt.Println("Ravlik Started")
 
 	for i := 0; i < 100; i++ {
-		RavlikListTurn()
+		ColoniesTurn()
+		// RavlikListTurn()
 		AreaTurn()
-		CleanDeadRavlik()
+		AreaAffect()
+		// CleanDeadRavlik()
 		DisplayStatistics()
 	}
 	// fmt.Println(AreaOptions)
