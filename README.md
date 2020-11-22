@@ -6,7 +6,7 @@ Ravlik can have a next states: NEW(Just born), IDLE(nothing to do), PARENTING(ne
 
 Apart from Ravlik there are aggressive Area with next states(SUNNY, CLOUDY, STORMY) There are probabilities how area states come from each other(Ravlik don't know about that). STORMY kills a lot of ravliks and it usually comes after CLOUDY state.
 
-Process lite Turn based strategy: Area makes a turn, then ravlik colonies make their turn. 
+Process like Turn based strategy: Area makes a turn, then Ravlik colonies make their turn. 
 
 Goal if POC is to understand how survive Ravlik colony without IF/ELSE statements. 
 
