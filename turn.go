@@ -47,7 +47,9 @@ func DisplayStatistics() {
 		for j := range stats {
 			fmt.Printf("%s:%d  ", RavlikStatus(j).String(), stats[j])
 		}
-		fmt.Println()
+		if colonyList[i].GetCount() > 0 {
+			fmt.Println()
+		}
 	}
 	fmt.Println()
 }
