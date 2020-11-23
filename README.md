@@ -8,7 +8,7 @@ Apart from Ravlik there are aggressive Area with next states(SUNNY, CLOUDY, STOR
 
 Process like Turn based strategy: Area makes a turn, then Ravlik colonies make their turn. 
 
-Goal if POC is to understand how survive Ravlik colony without IF/ELSE statements. 
+Goal of POC is to understand how Ravlik colony survives without IF/ELSE statements. 
 
 As a result: 4 colonies, each has own algorithm 
 - RandomRavlik, RandomRavlik2: Use random state change with some probability 
