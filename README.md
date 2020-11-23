@@ -12,7 +12,7 @@ Goal of POC is to understand how Ravlik colony survives without IF/ELSE statemen
 
 As a result: 4 colonies, each has own algorithm 
 - RandomRavlik, RandomRavlik2: Use random state change with some probability 
-- RavlikWithMemory: Uses random with first attempt, save experience, then when same circumstances use experience, then random
+- RavlikWithMemory: Saves desigions, at first attempt decides randomly saves experience, then when same circumstances use experience
 - RavlikShareWithKids: Share experience with Kids, they will know more.
 
 All colonies have 1000000 ravliks at start, and during 100 turns try to survive.
