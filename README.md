@@ -15,7 +15,7 @@ As a result: 4 colonies, each has own algorithm
 - RavlikWithMemory: Saves decisions, decides randomly at first attempt, saves experience. Then use experience under the same circumstances.
 - RavlikShareWithKids: Share experience with Kids; kids will know parents experience.
 
-All colonies have 1000000 ravliks at start, and during 100 turns try to survive.
+All colonies have 1000000 ravliks at the beginning, and during 100 turns try to survive.
 
 How to run: 
 ```go run . ```
